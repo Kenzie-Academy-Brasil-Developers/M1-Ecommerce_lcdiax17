@@ -1,5 +1,5 @@
 const mainCards = document.querySelector('main-cards')
-const mainUl = document.querySelector('main-ul')
+const mainUl = document.querySelector('.main-ul')
 
 
 let productsData = [];
@@ -23,6 +23,8 @@ for(let i = 0; i < productsData.length; i++){
     const valueLi = document.createElement('p')
     const butttonLi = document.createElement('button')
 
+    listLi.className = 'list-class'
+
     imageLi.setAttribute('src', productsData[i].img)
     titleLi.innerText = productsData[i].nameItem
     descriptionLi.innerText = productsData[i].description
@@ -30,6 +32,6 @@ for(let i = 0; i < productsData.length; i++){
     butttonLi.innerHTML = productsData[i].addCart
 
     listLi.append(imageLi, titleLi, descriptionLi, valueLi, butttonLi)
-
     
+    mainUl.appendChild(listLi)
 }

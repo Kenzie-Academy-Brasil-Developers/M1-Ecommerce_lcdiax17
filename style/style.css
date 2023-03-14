@@ -122,3 +122,7 @@ main {
   flex-direction: row;
   justify-content: space-between;
 }
+
+.list-class{
+background-color: #37268c;
+}
