@@ -13,11 +13,6 @@ header h1 {
   font-weight: bold;
 }
 
-
-img{
-  height: 200px;
-  width: 200px;
-}
 .header-menu {
   display: flex;
   gap: 20px;
@@ -115,6 +110,7 @@ main {
   flex-direction: column;
   justify-content: space-around;
 }
+
 .details-values {
   width: 100%;
   color: #ffffff;
@@ -123,6 +119,56 @@ main {
   justify-content: space-between;
 }
 
+.main-ul{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #9f9bb6;
+}
+
 .list-class{
-background-color: #37268c;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 20px;
+  width: 250px;
+  height: 380px;
+  background-color: rgb(235, 229, 229);
+  border: 1px solid rgb(202, 200, 200);
+}
+
+.image-li{
+background-color: #f5f5f5;
+margin-bottom: 10px;
+height: 150px;
+}
+
+.tag-li{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 5px;
+  background-color: #37268c;
+  color: #F5F5F5;
+  width: 100px;
+  height: 30px;
+}
+
+.title-li{
+background-color: aquamarine;
+margin-left: 5px;
+}
+
+.description-li{
+background-color: rgb(192, 74, 113);
+margin-left: 5px;
+}
+
+.value-li{
+  background-color: green;
+  margin-left: 5px;
+}
+
+.button-li{
+  background-color:#5948b1
 }
