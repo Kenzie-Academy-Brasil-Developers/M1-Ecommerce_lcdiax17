@@ -30,17 +30,70 @@ function renderAllProducts(list){
         descriptionLi.className = 'description-li'
         valueLi.className = 'value-li'
         butttonLi.className = 'button-li'
-    
+        
         imageLi.setAttribute('src', list[i].img)
         tagLi.innerText = list[i].tag
         titleLi.innerText = list[i].nameItem
         descriptionLi.innerText = list[i].description
-        valueLi.innerText = 'R$'+list[i].value
+        valueLi.innerText = `R$ ${list[i].value}`
         butttonLi.innerHTML = list[i].addCart
-    
-        listLi.append(imageLi, tagLi, titleLi, descriptionLi, valueLi, butttonLi)
+        butttonLi.id = `product-${list[i].id}`
         
+        butttonLi.addEventListener('click', function(event){
+            let productElement = event.target.id
+            let id = parseInt(productElement.substring(8))
+
+            let products = searchProduct(id)
+            
+            let productListCart = productInMyCart(products)
+            console.log(productListCart);
+        })
+
+        listLi.append(imageLi, tagLi, titleLi, descriptionLi, valueLi, butttonLi)
         mainUl.appendChild(listLi)
     }
 }
+
+function searchProduct(id){
+    for(let i = 0; i < data.length; i++){
+        if(data[i].id === id){
+            return data[i]
+        }
+    }
+}
+
+function productInMyCart(list){
+    const cartLiProd = document.createElement('li')
+    const cartImageProd = document.createElement('img')
+    const cartTitleProd = document.createElement('h3')
+    const cartValueProd = document.createElement('p')
+    const cartButttonProd = document.createElement('button')
+
+    cartImageProd.setAttribute('src', list[i].img)
+    cartTitleProd.innerText = list[i].nameItem
+    cartValueProd.innerText = `R$ ${list[i].value}`
+    cartButttonProd.innerHTML = list[i].addCart
+    cartButttonProd.id = `product-${list[i].id}`
+
+    cartLiProd.append(cartImageProd, cartTitleProd, cartValueProd, cartValueProd, cartButttonProd)
+    return cartLiProd
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 renderAllProducts(data)
