@@ -43,10 +43,13 @@ function renderAllProducts(list){
             let productElement = event.target.id
             let id = parseInt(productElement.substring(8))
 
-            let products = searchProduct(id)
+            let product = searchProduct(id)
             
-            let productListCart = productInMyCart(products)
-            console.log(productListCart);
+            let liProductCart = productInMyCart(product)
+            
+            document.querySelector('.cart-list').appendChild(liProductCart)
+
+            console.log(liProductCart);
         })
 
         listLi.append(imageLi, tagLi, titleLi, descriptionLi, valueLi, butttonLi)
@@ -62,33 +65,23 @@ function searchProduct(id){
     }
 }
 
-function productInMyCart(list){
+function productInMyCart(product){
     const cartLiProd = document.createElement('li')
     const cartImageProd = document.createElement('img')
     const cartTitleProd = document.createElement('h3')
     const cartValueProd = document.createElement('p')
     const cartButttonProd = document.createElement('button')
 
-    cartImageProd.setAttribute('src', list[i].img)
-    cartTitleProd.innerText = list[i].nameItem
-    cartValueProd.innerText = `R$ ${list[i].value}`
-    cartButttonProd.innerHTML = list[i].addCart
-    cartButttonProd.id = `product-${list[i].id}`
+    cartImageProd.setAttribute('src', product.img)
+    cartTitleProd.innerText = product.nameItem
+    cartValueProd.innerText = `R$ ${product.value}`
+    cartButttonProd.innerHTML = product.addCart
+    cartButttonProd.id = `product-${product.id}`
 
     cartLiProd.append(cartImageProd, cartTitleProd, cartValueProd, cartValueProd, cartButttonProd)
     return cartLiProd
 }
-
-
-
-
-
-
-
-
-
-
-
+// document.querySelector('.cart-list').appendChild(productInMyCart(data[0]))
 
 
 
