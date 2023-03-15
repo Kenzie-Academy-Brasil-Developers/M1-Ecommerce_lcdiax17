@@ -35,7 +35,7 @@ function renderAllProducts(list){
         tagLi.innerText = list[i].tag
         titleLi.innerText = list[i].nameItem
         descriptionLi.innerText = list[i].description
-        valueLi.innerText = list[i].value
+        valueLi.innerText = 'R$'+list[i].value
         butttonLi.innerHTML = list[i].addCart
     
         listLi.append(imageLi, tagLi, titleLi, descriptionLi, valueLi, butttonLi)
