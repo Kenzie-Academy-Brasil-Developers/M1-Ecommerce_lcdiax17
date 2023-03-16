@@ -93,9 +93,16 @@ function productInMyCart(product){
 
         let productElementRemovePath = event.composedPath()
         productElementRemovePath[1].remove()
-        
-        const addCartEmpty = document.querySelector('.cart-empty')
-        addCartEmpty.classList.remove('hidden-cart-empty')
+        console.log(productElementRemovePath)
+
+        console.log(countProductCart)
+        console.log(countTotalPriceCart)
+
+        if(countProductCart === 0){
+            const addCartEmpty = document.querySelector('.cart-empty')
+            addCartEmpty.classList.remove('hidden-cart-empty')
+        }
+
     })
     cartLiProd.append(cartImageProd, cartTitleProd, cartValueProd, cartValueProd, cartButttonProd)
     return cartLiProd
