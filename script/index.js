@@ -1,7 +1,7 @@
 const mainCards = document.querySelector('main-cards')
 const mainUl = document.querySelector('.main-ul')
 
-let productsData = [];
+let productsData = []
 
 function ProductsDataList(list){
 
@@ -40,12 +40,19 @@ function renderAllProducts(list){
         butttonLi.id = `product-${list[i].id}`
         
         butttonLi.addEventListener('click', function(event){
+
+            
             let productElement = event.target.id
             let id = parseInt(productElement.substring(8))
             let product = searchProduct(id)
             let liProductCart = productInMyCart(product)
             
             document.querySelector('.cart-list').appendChild(liProductCart)
+            
+            
+            const removeCartEmpty = document.querySelector('.cart-empty')
+            removeCartEmpty.classList.add('hidden-cart-empty')
+            
         })
 
         listLi.append(imageLi, tagLi, titleLi, descriptionLi, valueLi, butttonLi)
@@ -77,6 +84,9 @@ function productInMyCart(product){
     cartButttonProd.addEventListener('click', function(event){
         let productElementRemovePath = event.composedPath()
         productElementRemovePath[1].remove()
+
+        const addCartEmpty = document.querySelector('.cart-empty')
+        addCartEmpty.classList.remove('hidden-cart-empty')
     })
 
     cartLiProd.append(cartImageProd, cartTitleProd, cartValueProd, cartValueProd, cartButttonProd)
