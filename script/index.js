@@ -84,6 +84,12 @@ function productInMyCart(product){
     cartButttonProd.innerHTML = 'remover do carrinho'
     cartButttonProd.id = `product-${product.id}`
 
+    cartLiProd.className = 'cart-product-list'
+    cartImageProd.className = 'cart-product-image'
+    cartTitleProd.className = 'cart-product-title' 
+    cartValueProd.className = 'cart-product-value'
+    cartButttonProd.className = 'cart-product-button'
+
     cartButttonProd.addEventListener('click', function(event){
         countProductCart--
         document.querySelector('#count-product').innerHTML = `${countProductCart}`
@@ -93,16 +99,11 @@ function productInMyCart(product){
 
         let productElementRemovePath = event.composedPath()
         productElementRemovePath[1].remove()
-        console.log(productElementRemovePath)
-
-        console.log(countProductCart)
-        console.log(countTotalPriceCart)
 
         if(countProductCart === 0){
             const addCartEmpty = document.querySelector('.cart-empty')
             addCartEmpty.classList.remove('hidden-cart-empty')
         }
-
     })
     cartLiProd.append(cartImageProd, cartTitleProd, cartValueProd, cartValueProd, cartButttonProd)
     return cartLiProd
