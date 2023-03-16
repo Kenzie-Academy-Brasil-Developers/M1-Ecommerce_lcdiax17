@@ -42,14 +42,10 @@ function renderAllProducts(list){
         butttonLi.addEventListener('click', function(event){
             let productElement = event.target.id
             let id = parseInt(productElement.substring(8))
-
             let product = searchProduct(id)
-            
             let liProductCart = productInMyCart(product)
             
             document.querySelector('.cart-list').appendChild(liProductCart)
-
-            console.log(liProductCart);
         })
 
         listLi.append(imageLi, tagLi, titleLi, descriptionLi, valueLi, butttonLi)
@@ -75,13 +71,18 @@ function productInMyCart(product){
     cartImageProd.setAttribute('src', product.img)
     cartTitleProd.innerText = product.nameItem
     cartValueProd.innerText = `R$ ${product.value}`
-    cartButttonProd.innerHTML = product.addCart
+    cartButttonProd.innerHTML = 'remover do carrinho'
     cartButttonProd.id = `product-${product.id}`
+
+    cartButttonProd.addEventListener('click', function(event){
+        let productElementRemovePath = event.composedPath()
+        productElementRemovePath[1].remove()
+    })
 
     cartLiProd.append(cartImageProd, cartTitleProd, cartValueProd, cartValueProd, cartButttonProd)
     return cartLiProd
 }
-// document.querySelector('.cart-list').appendChild(productInMyCart(data[0]))
+
 
 
 
