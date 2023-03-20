@@ -5,6 +5,7 @@ let productsData = []
 let countProductCart = 0
 let countTotalPriceCart = 0
 
+
 function ProductsDataList(list){
 
     for(let i = 0; i < list.length; i++){
